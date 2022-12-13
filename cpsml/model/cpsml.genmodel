@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel"
+    modelDirectory="/cpsml/src-gen" creationIcons="false" editDirectory="/cpsml.edit/src-gen"
+    editorDirectory="/cpsml.editor/src-gen" modelPluginID="cpsml" modelName="Cpsml"
+    rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container" codeFormatting="true"
+    importerID="org.eclipse.emf.importer.ecore" complianceLevel="5.0" copyrightFields="false"
+    operationReflection="true" importOrganizing="true">
+  <foreignModel>cpsml.ecore</foreignModel>
+  <testsDirectory xsi:nil="true"/>
+  <genPackages prefix="Cpsml" disposableProviderFactory="true" ecorePackage="cpsml.ecore#/">
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="cpsml.ecore#//DataType">
+      <genEnumLiterals ecoreEnumLiteral="cpsml.ecore#//DataType/NULL"/>
+      <genEnumLiterals ecoreEnumLiteral="cpsml.ecore#//DataType/BOOLEAN"/>
+      <genEnumLiterals ecoreEnumLiteral="cpsml.ecore#//DataType/INT"/>
+      <genEnumLiterals ecoreEnumLiteral="cpsml.ecore#//DataType/STRING"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="cpsml.ecore#//Status">
+      <genEnumLiterals ecoreEnumLiteral="cpsml.ecore#//Status/GOOD"/>
+      <genEnumLiterals ecoreEnumLiteral="cpsml.ecore#//Status/WARNING"/>
+      <genEnumLiterals ecoreEnumLiteral="cpsml.ecore#//Status/CRITICAL"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="cpsml.ecore#//Protocol">
+      <genEnumLiterals ecoreEnumLiteral="cpsml.ecore#//Protocol/DDS"/>
+      <genEnumLiterals ecoreEnumLiteral="cpsml.ecore#//Protocol/MQTT"/>
+      <genEnumLiterals ecoreEnumLiteral="cpsml.ecore#//Protocol/SMQTT"/>
+    </genEnums>
+    <genClasses ecoreClass="cpsml.ecore#//CPS">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference cpsml.ecore#//CPS/environment"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference cpsml.ecore#//CPS/messageBroker"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference cpsml.ecore#//CPS/controller"/>
+    </genClasses>
+    <genClasses ecoreClass="cpsml.ecore#//Environment">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference cpsml.ecore#//Environment/node"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="cpsml.ecore#//NamedElement">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute cpsml.ecore#//NamedElement/name"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="cpsml.ecore#//Component">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference cpsml.ecore#//Component/function"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute cpsml.ecore#//Component/topic"/>
+    </genClasses>
+    <genClasses ecoreClass="cpsml.ecore#//Node">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference cpsml.ecore#//Node/component"/>
+    </genClasses>
+    <genClasses ecoreClass="cpsml.ecore#//Function">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference cpsml.ecore#//Function/parameter"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute cpsml.ecore#//Function/returnDataType"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute cpsml.ecore#//Function/hasReturn"/>
+    </genClasses>
+    <genClasses ecoreClass="cpsml.ecore#//Parameter">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute cpsml.ecore#//Parameter/dataType"/>
+    </genClasses>
+    <genClasses ecoreClass="cpsml.ecore#//Sensor">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute cpsml.ecore#//Sensor/frequency"/>
+    </genClasses>
+    <genClasses ecoreClass="cpsml.ecore#//Actuator">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute cpsml.ecore#//Actuator/runs"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute cpsml.ecore#//Actuator/ratedRuns"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="cpsml.ecore#//ConnectionModule">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute cpsml.ecore#//ConnectionModule/supportedProtocols"/>
+    </genClasses>
+    <genClasses ecoreClass="cpsml.ecore#//WirelessModule">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference cpsml.ecore#//WirelessModule/connect"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference cpsml.ecore#//WirelessModule/connectOpposite"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute cpsml.ecore#//WirelessModule/range"/>
+    </genClasses>
+    <genClasses ecoreClass="cpsml.ecore#//WiredModule">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference cpsml.ecore#//WiredModule/connect"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference cpsml.ecore#//WiredModule/connectOpposite"/>
+    </genClasses>
+    <genClasses ecoreClass="cpsml.ecore#//MessageBroker">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute cpsml.ecore#//MessageBroker/topics"/>
+    </genClasses>
+    <genClasses ecoreClass="cpsml.ecore#//Position">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute cpsml.ecore#//Position/x"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute cpsml.ecore#//Position/y"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute cpsml.ecore#//Position/z"/>
+    </genClasses>
+    <genClasses ecoreClass="cpsml.ecore#//Controller">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute cpsml.ecore#//Controller/description"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute cpsml.ecore#//Controller/topics"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="cpsml.ecore#//StatefulElement">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute cpsml.ecore#//StatefulElement/status"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="cpsml.ecore#//MessagingElement">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference cpsml.ecore#//MessagingElement/subscription"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference cpsml.ecore#//MessagingElement/publication"/>
+    </genClasses>
+    <genClasses ecoreClass="cpsml.ecore#//MessagingLink">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference cpsml.ecore#//MessagingLink/messageBroker"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute cpsml.ecore#//MessagingLink/topics"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="cpsml.ecore#//ConnectableElement">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference cpsml.ecore#//ConnectableElement/connectionModule"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference cpsml.ecore#//ConnectableElement/position"/>
+    </genClasses>
+  </genPackages>
+</genmodel:GenModel>

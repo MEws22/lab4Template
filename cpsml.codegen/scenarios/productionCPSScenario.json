@@ -1,0 +1,31 @@
+{ 
+	"controllers" : [
+		{ 
+			"name" : "controllerC1",
+			"messages" : [
+				"",
+				"temp-threedPrinter-heatedPrintBed.setTemperature(110)",
+				"temp-threedPrinter-heatedPrintBed.setTemperature(210)",
+				"production-threedPrinter-extrudor.startPrint()",
+				"temp-centralClimateControl-fan.turnOn()",
+				"temp-centralClimateControl-temperatureRegulator.setTemperature(25)",
+				"production-threedPrinter-extrudor.getRemainingPrintDuration()",
+				"",
+				"production-threedPrinter-extrudor.getRemainingPrintDuration()",
+				"",
+				"temp-centralClimateControl-fan.turnOff()",
+				"temp-centralClimateControl-temperatureRegulator.setTemperature(22)",
+				"",
+				"logistics-robot-roboticArm.grab(42)",
+				"temp-robot-internalTemperature.getTemperature()",
+				"temp-centralClimateControl-temperatureRegulator.setTemperature(19)",
+				"",
+				"logistics-conveyorBelt-motor.setSpeed(3)",
+				"logistics-conveyorBelt-motor.setSpeed(9)",
+				"",
+				"logistics-conveyorBelt-motor.setSpeed(0)",
+				"logistics-scaffolding-scanner.getContent()",
+				""]
+		}
+    ]
+}
