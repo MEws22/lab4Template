@@ -2,14 +2,14 @@
 The following notes aim to ease the understanding of simulation in lab4 and how it's individual components interact. The most critical components and their critical functions are documented.
 
 ## Simulation Utilities
-The simulation utilities are used to simulate the execution of the CPS, which shows the interaction of different components i.e., controllers, nodes, node components and message brokers with each other. The simulation shows the interaction as described by the [Runner](###Runner). The message loading from the file is handled by [DataSource](###DataSource) and each message follows a specific format in order to reach a specific nodes and controller and execute a specific function as described in [messages](###Messages in dataSources). 
+The simulation utilities are used to simulate the execution of the CPS, which shows the interaction of different components i.e., controllers, nodes, node components and message brokers with each other. The simulation shows the interaction as described by the [Runner](###Runner). The message loading from the file is handled by [DataSource](###DataSource) and each message follows a specific format in order to reach a specific nodes and controller and execute a specific function as described in [messages in datasources](###Messages). 
 
 
 ### DataSource
 A DataSource is needed for all Controller objects. It is basically a queue and the Controller reads the next message out of it. Each step a new message is read from each datasource of each controller. This continues as long as there are messages in the dataloader i.e., dataloader with maximum messages. Messages with no content can be understood as empty messages/no message for that step.
 
 
-### Messages in dataSources
+### Messages
 Messages from the dataSources are function calls defined as a concatenated string containing the topic, the receiving node, the component, the function name and possible function parameters in the following format:
 ``Topic-NodeName-ComponentName.FunctionName(ParameterValue1, ParameterValue2, ...)``
 e.g.: ``temp-threedPrinter-heatedPrintBed.setTemperature(110)``
