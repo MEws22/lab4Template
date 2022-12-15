@@ -20,7 +20,7 @@ public class Scaffolding implements MessagingElement {
 	private String name;
 	private Map<Linkable,List<String>> publicationLinks;
 	private Map<Linkable,List<String>> subscriptionLinks;
-	private List<String> msgCache;
+	private List<String> msgInCache;
 	private List<String> msgOutCache;
 	
 	private Scanner scanner;
@@ -29,7 +29,7 @@ public class Scaffolding implements MessagingElement {
 		this.name = name;
 		this.publicationLinks = new HashMap<>();
 		this.subscriptionLinks = new HashMap<>();
-		this.msgCache = new ArrayList<String>();
+		this.msgInCache = new ArrayList<String>();
 		this.msgOutCache = new ArrayList<String>();
 		
 		scanner = new Scanner("scanner");
@@ -70,7 +70,8 @@ public class Scaffolding implements MessagingElement {
 		mB.queueMessage(msg);
 	}
 	
-	public void sendMessages() {
+	@Override
+	public void sendAllMessages() {
 		for (Entry<Linkable, List<String>> link : publicationLinks.entrySet()) {
 			for (String msgOut: msgOutCache){
 				if (link.getValue().contains(msgOut.split("-")[0])){
@@ -84,14 +85,14 @@ public class Scaffolding implements MessagingElement {
 	public String queryMessages() {
 		for (Entry<Linkable, List<String>> link : subscriptionLinks.entrySet()) {
 			for (String topic: this.getTopics()){
-				msgCache.addAll(link.getKey().retrieveMessages(topic, this.name));
+				msgInCache.addAll(link.getKey().retrieveMessages(topic, this.name));
 			}
 		};
 		return null;
 	}
 	
 	public void routeMessages() {
-		for (String msg : msgCache) {
+		for (String msg : msgInCache) {
 			String msgContent = msg.split("-")[2];
 			String msgComponent = msgContent.split("\\.")[0];
 			String msgFunction = msgContent.split("\\.")[1];
@@ -126,7 +127,7 @@ public class Scaffolding implements MessagingElement {
 	}
 	
 	public void step(){
-		msgCache.clear();
+		msgInCache.clear();
 		msgOutCache.clear();
 		
 		queryMessages();
@@ -134,7 +135,7 @@ public class Scaffolding implements MessagingElement {
 		
 		scanner.step(msgOutCache);
 		
-		sendMessages();
+		sendAllMessages();
 	}
 
 }

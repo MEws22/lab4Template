@@ -1,6 +1,7 @@
 package production.component;
 
 import java.util.List;
+import java.util.Random;
 
 public class InternalTemperature {
 	
@@ -26,7 +27,7 @@ public class InternalTemperature {
 	
 	public int getTemperature(){
 		System.out.println("    🟣  Sensor timed function execution: " + this.name + " -> getTemperature() returning type INT");
-		return 291155745;
+		return new Random().nextInt(100);
 	}
 	
 	public void addMessageToNodeOutgoingCache(String topic, String msgContent, String recipient, List<String> msgOutCache) {

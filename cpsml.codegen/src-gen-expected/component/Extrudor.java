@@ -2,6 +2,7 @@ package production.component;
 
 import java.util.Arrays;
 import java.util.Iterator;
+import java.util.Random;
 
 public class Extrudor{
 	
@@ -23,7 +24,7 @@ public class Extrudor{
 	} 
 	public int getRemainingPrintDuration(){
 		System.out.println("    🔵  Actuator called function execution: " + this.name + " -> getRemainingPrintDuration() returning type INT");
-		return 2076191646;
+		return new Random().nextInt(100);
 	} 
 
 	public String getName() {
