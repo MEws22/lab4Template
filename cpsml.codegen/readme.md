@@ -2,7 +2,7 @@
 The following notes aim to ease the understanding of simulation in lab4 and how it's individual components interact. The most critical components and their critical functions are documented.
 
 ## Simulation Utilities
-The simulation utilities are used to simulate the execution of the CPS, which shows the interaction of different components i.e., controllers, nodes, node components and message brokers with each other. The simulation shows the interaction as described by the [Runner](### Runner). The message loading from the file is handled by [DataSource](### DataSource) and each message follows a specific format in order to reach a specific nodes and controller and execute a specific function as described in [messages](### Messages in dataSources). 
+The simulation utilities are used to simulate the execution of the CPS, which shows the interaction of different components i.e., controllers, nodes, node components and message brokers with each other. The simulation shows the interaction as described by the [Runner](### Runner). The message loading from the file is handled by [DataSource](###DataSource) and each message follows a specific format in order to reach a specific nodes and controller and execute a specific function as described in [messages](### Messages in dataSources). 
 
 
 ### DataSource
